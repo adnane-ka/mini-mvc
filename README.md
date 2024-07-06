@@ -30,6 +30,8 @@ The foundational components of this project include:
 - **Router Handler Class**: [core/Router.php](core/Router.php)
 - **Request Handler Class**: [core/Request.php](core/Request.php)
 - **View Handler Class**: [core/View.php](core/View.php)
+- **Database Connection Handler Class**: [core/Database/DBConnection.php](core/Database/DBConnection.php)
+- **Query Builder Class**: [core/Database/QueryBuilder.php](core/Database/QueryBuilder.php)
 
 ## Implementation Overview
 
