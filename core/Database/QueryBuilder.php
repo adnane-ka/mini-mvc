@@ -22,7 +22,7 @@ class QueryBuilder{
         $rows = [];
 
         if ($result->num_rows > 0) {
-            # return multi-dimensional array if fetching for a multiple records
+            # return multi-dimensional array if fetching for a multiple record
             if($result->num_rows == 1 && !is_null($where) && !is_null($value)){
                 return $result->fetch_assoc();
             }else{
