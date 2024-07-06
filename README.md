@@ -8,9 +8,11 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 1. Download or clone the repository.
 2. Move the project folder to `xampp/htdocs`.
 3. Run `composer install` & `composer dump-autoload` if needed.
-4. Inject the project folder name as `SUB_DIRECTORY` value in `.env` file.
-5. Prepare & Inject your database credentials in `.env` file.
-6. That's it!
+4. Run `touch .env` to create an env file.
+5. Copy `.env.example` content to `.env`.
+6. Inject the project folder name as `SUB_DIRECTORY` value in `.env` file.
+7. Prepare & Inject your database credentials in `.env` file.
+8. That's it!
 
 ## Project Structure
 

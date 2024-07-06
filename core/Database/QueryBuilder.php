@@ -22,7 +22,7 @@ class QueryBuilder{
     }
 
     /**
-     * Select a one record from the given table
+     * Select one record id-matching from a given table
      * @return array
     */
     public static function selectOne($table, $id){
