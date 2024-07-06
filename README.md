@@ -1,6 +1,6 @@
 # MINI MVC
 
-This project was designed to provide a lightweight PHP applications based on the MVC design pattern. Inspired by Laravel to streamline development & provide easy use.
+This project was designed to build lightweight PHP applications based on the MVC design pattern. It was inspired by Laravel to streamline development & provide easy use.
 
 For a better saying, it's the lumen version for the lumen micro-framework.
 

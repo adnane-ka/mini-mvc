@@ -27,7 +27,7 @@ class Router{
             return new static;
         }
 
-        throw new BadMethodCallException("Method {$name} does not exist.");
+        throw new \BadMethodCallException("Method {$name} does not exist.");
     }
 
     /**
@@ -55,7 +55,7 @@ class Router{
 
             call_user_func([new $controller, $targetMethod], ...$args);
         }else{
-            throw new Exception("Page not found", 404);
+            throw new \Exception("Page not found", 404);
         }
     }
 
