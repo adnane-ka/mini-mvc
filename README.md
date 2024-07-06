@@ -14,6 +14,12 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 7. Prepare & Inject your database credentials in `.env` file.
 8. That's it!
 
+## How to Use
+
+If you intend to use this micro framework for a personal project, you can ignore the `core` directory unless you need to override existing functionality. All your application files should reside in the `app` directory. 
+
+If you wish to contribute to this project, you are welcome to enhance or override the existing functionality in the `core` directory.
+
 ## Project Structure
 
 This project is organized into three primary components:
