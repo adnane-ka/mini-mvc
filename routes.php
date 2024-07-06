@@ -2,7 +2,7 @@
 
 use Core\Router;
 
-/**
+/**********************
  * Users Routes Example
 */
 Router::get('', 'UsersController@index');

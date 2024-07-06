@@ -16,7 +16,7 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 
 ## How to Use
 
-If you intend to use this micro framework for a personal project, you can ignore the `core` directory unless you need to override existing functionality. All your application files should reside in the `app` directory. 
+If you intend to use this micro framework for a personal project, you can ignore the `core` directory unless you need to override existing functionality. All your application files should reside in the `app` directory, as you can use `routes.php` for route definition. 
 
 If you wish to contribute to this project, you are welcome to enhance or override the existing functionality in the `core` directory.
 
