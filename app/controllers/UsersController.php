@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\User;
+use Core\Request;
 
 class UsersController extends Controller{
     /**
@@ -20,5 +21,32 @@ class UsersController extends Controller{
         $user = User::find($user);
         
         return view('users/show', compact('user'));
+    }
+
+    /**
+     * Store a new user
+    */
+    public function store(){
+        User::create(Request::only(['name']));
+
+        return Request::redirect('');
+    }
+
+    /**
+     * Store a new user
+    */
+    public function delete($user){
+        User::delete($user);
+
+        return Request::redirect('');
+    }
+
+    /**
+     * Update a given user's data
+    */
+    public function update($user){
+        User::update($user, Request::only(['name']));
+
+        return Request::redirect('');
     }
 }

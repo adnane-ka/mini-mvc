@@ -2,5 +2,11 @@
 
 use Core\Router;
 
-Router::get('users', 'UsersController@index');
-Router::get('users/{user}', 'UsersController@show');
+/**
+ * Users Routes Example
+*/
+Router::get('', 'UsersController@index');
+Router::post('', 'UsersController@store');
+Router::get('{user}', 'UsersController@show');
+Router::delete('{user}', 'UsersController@delete');
+Router::patch('{user}', 'UsersController@update');

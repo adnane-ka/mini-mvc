@@ -36,8 +36,12 @@ class Router{
     */
     public static function init($path){ 
         # extract request method
-        $method = strtolower($_SERVER['REQUEST_METHOD']);
-        
+        $method = strtolower(
+            array_key_exists('REQUEST_METHOD', $_POST) 
+            ? $_POST['REQUEST_METHOD'] 
+            : $_SERVER['REQUEST_METHOD']
+        );
+
         if(is_array($route = self::routeExists($path, $method))){
             $args = $route['params'];
             $target = $route['target'];

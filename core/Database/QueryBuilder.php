@@ -4,17 +4,31 @@ namespace Core\Database;
 
 class QueryBuilder{
     /**
+     * Execute a given SQL statement & return result
+    */
+    private static function exec($query){
+        $conn = (new DBConnection)->init();
+        return $conn->query($query);
+    }
+
+    /**
      * Select multiple records from a given table
      * @return array
     */
-    public static function selectMultiple($table){
+    public static function select($table, $where = null, $value = null){
         $query = "SELECT * FROM $table";
-        $result = (new DBConnection)->init()->query($query);
+        $query = ($where && $value) ? $query." WHERE $where=$value;" : $query;
+        $result = self::exec($query);
         $rows = [];
 
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                array_push($rows, $row);
+            # return multi-dimensional array if fetching for a multiple records
+            if($result->num_rows == 1 && !is_null($where) && !is_null($value)){
+                return $result->fetch_assoc();
+            }else{
+                while ($row = $result->fetch_assoc()) {
+                    array_push($rows, $row);
+                }
             }
         }
 
@@ -22,17 +36,55 @@ class QueryBuilder{
     }
 
     /**
-     * Select one record id-matching from a given table
+     * Delete where-matching records from a given table
+     * @return void
+    */
+    public static function delete($table, $column, $value){
+        $query = "DELETE FROM $table WHERE $column=$value";
+
+        return self::exec($query);
+    }
+
+    /**
+     * Insert a given data in a given table
      * @return array
     */
-    public static function selectOne($table, $id){
-        $query = "SELECT * FROM $table WHERE id=$id";
-        $result = (new DBConnection)->init()->query($query);
+    public static function insert($table, $columns, $values){
+        $columns = implode(',', $columns);
+        $values = array_map(function($value){
+            return "'$value'";
+        }, $values);
+        $values = implode(',', $values);
 
-        if ($result->num_rows > 0) {
-            return $row = $result->fetch_assoc();
-        }else{
-            return [];
+        $query = "INSERT INTO $table ($columns) VALUES ($values)";
+
+        return self::exec($query);
+    }
+
+    /**
+     * Update a multiple records in a given table using a given data
+     * @return array
+    */
+    public static function update($table, $where, $value, $data){
+        $pairs = '';
+        foreach ($data as $k => $v) {
+            $pairs .= $k .'=' ."'$v'";
+            if(end($data) !== $v){
+                $pairs .= ',';
+            }
         }
+        $query = "UPDATE $table SET $pairs WHERE $where=$value";
+        
+        return self::exec($query);
+    }
+
+    /**
+     * Truncate a given table 
+     * @return void
+    */
+    public static function truncate($table){
+        $query = "DELETE FROM $table";
+
+        return self::exec($query);
     }
 }
