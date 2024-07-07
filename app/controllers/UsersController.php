@@ -33,7 +33,7 @@ class UsersController extends Controller{
     }
 
     /**
-     * Store a new user
+     * Delete a given user
     */
     public function delete($user){
         User::delete($user);

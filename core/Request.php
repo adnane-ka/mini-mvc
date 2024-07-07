@@ -42,7 +42,7 @@ class Request{
     }
 
     /**
-     * get request parameters
+     * redirect to a given location
     */
     public static function redirect($uri){
         return header('Location: /' . $_ENV['SUB_DIRECTORY'] . '/' . $uri);
