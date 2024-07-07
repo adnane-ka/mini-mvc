@@ -12,7 +12,8 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 5. Copy `.env.example` content to `.env`.
 6. Inject the project folder name as `SUB_DIRECTORY` value in `.env` file.
 7. Prepare & Inject your database credentials in `.env` file.
-8. That's it!
+8. Create a demo `users` table in your database & assign it with two basic columns: name, id.
+9. That's it!
 
 ## How to Use
 
