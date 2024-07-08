@@ -1,19 +1,24 @@
 <?php 
 
 /**
+ * load helpers for global use
+*/
+require_once __DIR__ .'/core/helpers.php';
+
+/**
  * Load dependencies
 */
-require './vendor/autoload.php';
+require __DIR__.'./vendor/autoload.php';
 
 /**
  * Load app core
 */
-require './core/_init.php';
+require __DIR__.'./core/_init.php';
 
 /**
  * Load routes
 */
-require './routes.php';
+require __DIR__.'./routes.php';
 
 /**
  * Initialize app for the current route
