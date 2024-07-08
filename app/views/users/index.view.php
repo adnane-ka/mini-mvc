@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo url('/'); ?>" method="post">
+    <form action="<?= url('/'); ?>" method="post">
         <input type="text" name="name" />
         <button type="submit">Create</button>
     </form>
@@ -20,12 +20,12 @@
         <tbody>
             <?php if(count($users) > 0){ foreach($users as $user){ ?>
                 <tr>
-                    <td><?php echo $user['id']; ?></td>
-                    <td><?php echo $user['name']; ?></td>
+                    <td><?= $user['id']; ?></td>
+                    <td><?= $user['name']; ?></td>
                     <td>
                         <div style="display: flex; gap:2px;">
-                            <a href="/<?php echo $user['id']; ?>">View</a>
-                            <form action="/<?php echo $user['id']; ?>" method="post">
+                            <a href="<?= url($user['id']); ?>">View</a>
+                            <form action="<?= url($user['id']); ?>" method="post">
                                 <input type="hidden" name="REQUEST_METHOD" value="delete"/>
                                 <button>Delete</button>
                             </form>
