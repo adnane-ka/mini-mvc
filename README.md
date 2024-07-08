@@ -6,13 +6,12 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 
 ## Installation
 1. Download or clone the repository.
-2. Move the project folder to `xampp/htdocs`.
-3. Run `composer install` & `composer dump-autoload` if needed.
-4. Run `touch .env` to create an env file.
-5. Copy `.env.example` content to `.env`.
-6. Inject the project folder name as `SUB_DIRECTORY` value in `.env` file.
-7. Prepare & Inject your database credentials in `.env` file.
-8. Create a demo `users` table in your database & assign it with two basic columns: name, id.
+2. Run `composer install` & `composer dump-autoload` if needed.
+3. Run `touch .env` to create an env file.
+4. Copy `.env.example` content to `.env`.
+6. Prepare & Inject your database credentials in `.env` file.
+7. Create a demo `users` table in your database & assign it with two basic columns: name, id.
+8. Run `php run` to preview your project using the generated url.
 9. That's it!
 
 ## How to Use
@@ -25,20 +24,22 @@ If you wish to contribute to this project, you are welcome to enhance or overrid
 
 This project is organized into three primary components:
 
-- **Models**: Located in [app/models](app/models)
-- **Controllers**: Located in [app/controllers](app/controllers)
-- **Views**: Located in [app/views](app/views)
+- **Models**: Located at [app/models](app/models)
+- **Views**: Located at [app/views](app/views)
+- **Controllers**: Located at [app/controllers](app/controllers)
 
 ## Core Components
 
 The foundational components of this project include:
 
 - **Base Model Class**: [core/BaseModel.php](core/BaseModel.php)
+- **Base Controller Class**: [core/BaseController.php](core/BaseController.php)
 - **Router Handler Class**: [core/Router.php](core/Router.php)
 - **Request Handler Class**: [core/Request.php](core/Request.php)
 - **View Handler Class**: [core/View.php](core/View.php)
 - **Database Connection Handler Class**: [core/Database/DBConnection.php](core/Database/DBConnection.php)
 - **Query Builder Class**: [core/Database/QueryBuilder.php](core/Database/QueryBuilder.php)
+- **A set of helper functions**: [core/helpers.php](core/helpers.php)
 
 ## Implementation Overview
 
