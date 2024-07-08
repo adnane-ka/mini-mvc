@@ -11,7 +11,7 @@ require_once __DIR__ .'/core/helpers.php';
 require __DIR__.'./vendor/autoload.php';
 
 /**
- * Load app core
+ * Initialize Dotenv
 */
 require __DIR__.'./core/_init.php';
 
