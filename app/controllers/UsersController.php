@@ -3,8 +3,9 @@
 namespace App\Controllers;
 use App\Models\User;
 use Core\Request;
+use Core\BaseController;
 
-class UsersController extends Controller{
+class UsersController extends BaseController{
     /**
      * Display a listing of users
     */

@@ -45,7 +45,7 @@ class Request{
      * redirect to a given location
     */
     public static function redirect($uri){
-        return header('Location: /' . $_ENV['SUB_DIRECTORY'] . '/' . $uri);
+        return header('Location: ' . url($uri));
     }
 
     /**
@@ -55,5 +55,19 @@ class Request{
     private static function sanitizeParams(){
         $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    }
+
+    /**
+     * get a full url from a given path
+     * @return string
+    */
+    public function url($path){
+        # Ensure APP_URL does not have a trailing slash
+        $baseUrl = rtrim($_ENV['APP_URL'], '/');
+        
+        # Ensure $path does not have a leading slash
+        $path = ltrim($path, '/');
+        
+        return $baseUrl . '/' . $path;
     }
 }

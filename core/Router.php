@@ -35,6 +35,7 @@ class Router{
      * @return void
     */
     public static function init($path){ 
+        
         # extract request method
         $method = strtolower(
             array_key_exists('REQUEST_METHOD', $_POST) 

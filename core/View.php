@@ -1,5 +1,7 @@
 <?php 
 
+namespace Core;
+
 class View{
     /**
      * Render a view from a given file & data
@@ -14,14 +16,5 @@ class View{
         }else{
             throw new \Exception("View file does not exist", 500);
         }
-    }
-}
-
-/**
- * Globally Declare the `view` helper
-*/
-if(!function_exists('view')){
-    function view($target, $params = []){
-        return (new View)->render($target, $params);
     }
 }

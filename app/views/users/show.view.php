@@ -10,7 +10,7 @@
     <br>
     <strong>NAME</strong>: <?php echo $user['name']; ?>
     <br>
-    <form action="/mini-mvc/<?php echo $user['id']; ?>" method="post">
+    <form action="/<?php echo $user['id']; ?>" method="post">
         <input type="hidden" name="REQUEST_METHOD" value="patch"/>
         <input type="text" name="name" value="<?php echo $user['name']; ?>" />
         <button type="submit">Update</button>

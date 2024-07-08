@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/mini-mvc/" method="post">
+    <form action="<?php echo url('/'); ?>" method="post">
         <input type="text" name="name" />
         <button type="submit">Create</button>
     </form>
@@ -24,8 +24,8 @@
                     <td><?php echo $user['name']; ?></td>
                     <td>
                         <div style="display: flex; gap:2px;">
-                            <a href="/mini-mvc/<?php echo $user['id']; ?>">View</a>
-                            <form action="/mini-mvc/<?php echo $user['id']; ?>" method="post">
+                            <a href="/<?php echo $user['id']; ?>">View</a>
+                            <form action="/<?php echo $user['id']; ?>" method="post">
                                 <input type="hidden" name="REQUEST_METHOD" value="delete"/>
                                 <button>Delete</button>
                             </form>

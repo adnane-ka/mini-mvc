@@ -1,0 +1,6 @@
+<?php 
+
+/***
+ * Run the project on local machine using php built-in webserver
+*/
+exec('php -S localhost:8000');
