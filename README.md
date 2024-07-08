@@ -6,13 +6,12 @@ For a better saying, it's the lumen version for the lumen micro-framework.
 
 ## Installation
 1. Download or clone the repository.
-2. Run `composer install` & `composer dump-autoload` if needed.
+2. Run `composer install`.
 3. Run `touch .env` to create an env file.
 4. Copy `.env.example` content to `.env`.
-6. Prepare & Inject your database credentials in `.env` file.
-7. Create a demo `users` table in your database & assign it with two basic columns: name, id.
-8. Run `php run` to preview your project using the generated url.
-9. That's it!
+6. Inject your mysql database credentials in `.env` file.
+7. Run `php run db:migrate` for database migration.
+8. Run `php run dev` to preview the project on your local webserver.
 
 ## How to Use
 
@@ -39,6 +38,7 @@ The foundational components of this project include:
 - **View Handler Class**: [core/View.php](core/View.php)
 - **Database Connection Handler Class**: [core/Database/DBConnection.php](core/Database/DBConnection.php)
 - **Query Builder Class**: [core/Database/QueryBuilder.php](core/Database/QueryBuilder.php)
+- **Command Handler Class**: [core/Database/CommandHandler.php](core/Database/CommandHandler.php)
 - **A set of helper functions**: [core/helpers.php](core/helpers.php)
 
 ## Implementation Overview
@@ -54,6 +54,7 @@ The foundational components of this project include:
 - More utility/helper methods
 - A mini template engine for view management
 - A mini exception handler for improved error handling
+- Sanitization & data validating
 - And much more ..
 
 We welcome and actively encourage contributions to this project. Whether you want to report bugs, suggest new features, or improve the existing code, your input is valuable. Join us in making this project better by submitting pull requests, participating in discussions, and sharing your expertise.

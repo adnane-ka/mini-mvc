@@ -1,6 +1,14 @@
 <?php 
 
-/***
- * Run the project on local machine using php built-in webserver
+use Core\CommandHandler;
+
+/**
+ * Load dependencies & initialize Dotenv
 */
-exec('php -S localhost:8000');
+require __DIR__.'./vendor/autoload.php';
+require __DIR__.'/core/_init.php';
+
+/**
+ * Handles the run command
+*/
+new CommandHandler($argv);
