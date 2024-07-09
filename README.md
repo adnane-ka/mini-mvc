@@ -38,7 +38,7 @@ The foundational components of this project include:
 - **View Handler Class**: [core/View.php](core/View.php)
 - **Database Connection Handler Class**: [core/Database/DBConnection.php](core/Database/DBConnection.php)
 - **Query Builder Class**: [core/Database/QueryBuilder.php](core/Database/QueryBuilder.php)
-- **Command Handler Class**: [core/Database/CommandHandler.php](core/Database/CommandHandler.php)
+- **Command Handler Class**: [core/CommandHandler.php](core/CommandHandler.php)
 - **A set of helper functions**: [core/helpers.php](core/helpers.php)
 
 ## Implementation Overview
