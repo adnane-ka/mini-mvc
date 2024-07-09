@@ -3,11 +3,34 @@
 namespace Core\Database;
 
 class DBConnection{
+    private static $instance;
+    private $connection;
+
     /**
-     * initialize a db connection
-     * @return mysqli
+     * Ensure private construction to prevent direct construction calls
     */
-    public function init(){
+    private function __construct(){
+        $this->init();
+    }
+
+    /**
+     * Controls access to the DBConnection singleton 
+     * @return DBConnection
+     */
+    public static function getInstance()
+    {
+        if(self::$instance == null){
+            self::$instance = new self;
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * Initialize a db connection
+     * @return void
+    */
+    private function init(){
         $servername = "localhost";
         $username = $_ENV['DB_USERNAME'];
         $password = $_ENV['DB_PASSWORD'];
@@ -15,11 +38,26 @@ class DBConnection{
 
         $conn = new \mysqli($servername, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        return $conn;
+        $this->connection = $conn;
+    }
+
+    /**
+     * Get the connection
+     * @return mysqli
+     */
+    public function getConnection() {
+        return $this->connection;
+    }
+
+    /**
+     * Close the mysql connection
+     * @return void
+     */
+    public function closeConnection() {
+        $this->connection->close();
     }
 }

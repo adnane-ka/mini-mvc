@@ -7,8 +7,13 @@ class QueryBuilder{
      * Execute a given SQL statement & return result
     */
     private static function exec($query){
-        $conn = (new DBConnection)->init();
-        return $conn->query($query);
+        $instance = DBConnection::getInstance();
+
+        $result = $instance->getConnection()->query($query);
+
+        $instance->closeConnection();
+
+        return $result;
     }
 
     /**
