@@ -8,7 +8,7 @@ use Core\View;
 */
 if(!function_exists('url')){
     function url($path){
-        return (new Request)->url($path);
+        return Request::url($path);
     }
 }
 

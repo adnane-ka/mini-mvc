@@ -1,14 +1,14 @@
 <?php 
 
 /**
- * load helpers for global use
-*/
-require_once __DIR__ .'/core/helpers.php';
-
-/**
  * Load dependencies
 */
 require __DIR__.'./vendor/autoload.php';
+
+/**
+ * load helpers for global use
+*/
+require_once __DIR__ .'/core/helpers.php';
 
 /**
  * Initialize Dotenv
@@ -21,6 +21,6 @@ require __DIR__.'./core/_init.php';
 require __DIR__.'./routes.php';
 
 /**
- * Initialize app for the current route
+ * Initialize app for the current request URI
 */
-Core\Router::init(Core\Request::getPath());
+Core\App::getInstance()->getApp();
