@@ -60,4 +60,14 @@ class DBConnection{
     public function closeConnection() {
         $this->connection->close();
     }
+
+    /**
+     * Prevent Unserialization
+    */
+    public function __wakeup(){}
+
+    /**
+     * Prevent Cloning
+    */
+    protected function __clone(){}
 }

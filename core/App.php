@@ -26,4 +26,14 @@ class App{
 
         return self::$instance;
     }
+
+    /**
+     * Prevent Unserialization
+    */
+    public function __wakeup(){}
+
+    /**
+     * Prevent Cloning
+    */
+    protected function __clone(){}
 }
