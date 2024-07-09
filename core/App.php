@@ -1,16 +1,17 @@
 <?php 
 
 namespace Core;
+use Core\Facades\Router;
+use Core\Facades\Request;
 
 class App{
     protected static $instance;
-    protected $app;
-
+    
     /**
      * Ensure private construction to prevent direct construction calls
     */
     private function __construct(){
-        $this->app = Router::init(Request::getRequestURI());
+        Router::init(Request::getRequestURI());
     }
 
     /**
@@ -24,13 +25,5 @@ class App{
         }
 
         return self::$instance;
-    }
-
-    /**
-     * Get the initiated app 
-     * @return App
-    */
-    public function getApp(){
-        return $this->app;
     }
 }

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Core;
+namespace Core\Facades;
 
 class Router{
     private static $routes = [
@@ -18,11 +18,8 @@ class Router{
      * @return Static
      */
     public static function __callStatic($name, $arguments) {
-        # define valid HTTP verbs
-        $validMethods = ['get', 'post', 'patch', 'put', 'delete'];
-
         # register the route as a new route if is valid
-        if (in_array($name, $validMethods)) {
+        if (array_key_exists($name, self::$routes)) {
             self::$routes[$name][$arguments[0]] = $arguments[1];
             return new static;
         }
@@ -35,29 +32,27 @@ class Router{
      * @return void
     */
     public static function init($path){ 
-        
-        # extract request method
-        $method = strtolower(
+        # extract lowecased request method
+        $httpVerb = strtolower(
             array_key_exists('REQUEST_METHOD', $_POST) 
             ? $_POST['REQUEST_METHOD'] 
             : $_SERVER['REQUEST_METHOD']
         );
 
-        if(is_array($route = self::routeExists($path, $method))){
+        if(is_array($route = self::routeExists($path, $httpVerb))){
             $args = $route['params'];
             $target = $route['target'];
 
-            # extract controller method
-            $target = explode('@', self::$routes[$method][$target]);
+            # extract the target controller method
+            $target = explode('@', self::$routes[$httpVerb][$target]);
             $targetController = $target[0];
             $targetMethod = $target[1];
 
-            # include the related controller class
-            include "app/controllers/$targetController.php";
-
+            # initiate new instance of the controller
             $controller = "App\Controllers\\$targetController";
             $controllerInstance = new $controller;
 
+            # call the target controller's method & injected parameters if attached
             call_user_func([new $controller, $targetMethod], ...$args);
         }else{
             throw new \Exception("Page not found", 404);

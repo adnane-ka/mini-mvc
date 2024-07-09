@@ -1,6 +1,6 @@
 <?php 
 
-namespace Core;
+namespace Core\Database;
 use Core\Database\QueryBuilder;
 
 abstract class BaseModel {

@@ -1,7 +1,7 @@
 <?php 
 
-use Core\Request;
-use Core\View;
+use Core\Facades\Request;
+use Core\Facades\View;
 
 /**
  * Globally Declare the `url` helper

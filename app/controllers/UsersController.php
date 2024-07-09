@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\User;
-use Core\Request;
+use Core\Facades\Request;
 use Core\BaseController;
 
 class UsersController extends BaseController{

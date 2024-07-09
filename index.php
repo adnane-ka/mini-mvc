@@ -21,6 +21,6 @@ require __DIR__.'./core/_init.php';
 require __DIR__.'./routes.php';
 
 /**
- * Initialize app for the current request URI
+ * Initialize app using the App singleton
 */
-Core\App::getInstance()->getApp();
+Core\App::getInstance();

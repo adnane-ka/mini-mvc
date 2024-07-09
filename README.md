@@ -31,14 +31,14 @@ This project is organized into three primary components:
 
 The foundational components of this project include:
 
-- **Base Model Class**: [core/BaseModel.php](core/BaseModel.php)
 - **Base Controller Class**: [core/BaseController.php](core/BaseController.php)
-- **Router Handler Class**: [core/Router.php](core/Router.php)
-- **Request Handler Class**: [core/Request.php](core/Request.php)
-- **View Handler Class**: [core/View.php](core/View.php)
 - **Database Connection Handler Class**: [core/Database/DBConnection.php](core/Database/DBConnection.php)
 - **Query Builder Class**: [core/Database/QueryBuilder.php](core/Database/QueryBuilder.php)
+- **Base Model Class**: [core/Database/BaseModel.php](core/Database/BaseModel.php)
 - **Command Handler Class**: [core/CommandHandler.php](core/CommandHandler.php)
+- **Router Handler Class**: [core/Facades/Router.php](core/Facades/Router.php)
+- **Request Handler Class**: [core/Facades/Request.php](core/Facades/Request.php)
+- **View Handler Class**: [core/Facades/View.php](core/Facades/View.php)
 - **A set of helper functions**: [core/helpers.php](core/helpers.php)
 
 ## Implementation Overview

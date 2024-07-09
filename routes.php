@@ -1,6 +1,6 @@
 <?php 
 
-use Core\Router;
+use Core\Facades\Router;
 
 /**********************
  * Users Routes Example
