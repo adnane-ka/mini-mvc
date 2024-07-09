@@ -19,6 +19,10 @@ If you intend to use this micro framework for a personal project, you can ignore
 
 If you wish to contribute to this project, you are welcome to enhance or override the existing functionality in the `core` directory.
 
+## View managment
+
+For view rendering, we've choosed [Twig](https://twig.symfony.com/) as a default template engine.
+
 ## Project Structure
 
 This project is organized into three primary components:
@@ -52,8 +56,7 @@ The foundational components of this project include:
 
 - Additional ORM implementations and Query Builder methods
 - More utility/helper methods
-- A mini template engine for view management
-- A mini exception handler for improved error handling
+- An exception handler for improved error handling
 - Sanitization & data validating
 - And much more ..
 

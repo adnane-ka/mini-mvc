@@ -1,0 +1,15 @@
+{% extends "layouts/master.twig" %}
+
+{% block title %} {{ user.name }} {% endblock %}
+
+{% block content %}
+<strong>ID</strong>:  {{ user.id }}
+<br>
+<strong>NAME</strong>:  {{ user.name }}
+<br>
+<form action="/{{ user.id }}" method="post">
+    <input type="hidden" name="REQUEST_METHOD" value="patch"/>
+    <input type="text" name="name" value="{{ user.name }}" />
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

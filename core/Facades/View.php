@@ -9,10 +9,8 @@ class View{
      * @param array $params
     */
     public function render($target, $params){
-        $file = "app/views/$target.view.php";
-        if(file_exists($file)){
-            extract($params);
-            include $file;
+        if(file_exists("app/views/$target.twig")){
+            (new \Core\TwigBuilder)->render($target.'.twig', $params);
         }else{
             throw new \Exception("View file does not exist", 500);
         }

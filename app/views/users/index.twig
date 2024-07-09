@@ -1,0 +1,35 @@
+{% extends "layouts/master.twig" %}
+
+{% block title %} Users {% endblock %}
+
+{% block content %}
+<form action="/" method="post">
+    <input type="text" name="name" />
+    <button type="submit">Create</button>
+</form>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>
+                <div style="display: flex; gap:2px;">
+                    <a href="{{ user.id }}">View</a>
+                    <form action="{{ user.id }}" method="post">
+                        <input type="hidden" name="REQUEST_METHOD" value="delete"/>
+                        <button>Delete</button>
+                    </form>
+                </div>
+            </td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
